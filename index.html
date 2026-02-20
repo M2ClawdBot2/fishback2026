@@ -29,6 +29,221 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* ============ ANIMATIONS ============ */
+
+  /* Scroll-triggered reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.3s; }
+  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.45s; }
+  .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.6s; }
+  .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.75s; }
+  .reveal-stagger.visible > * {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .reveal-stagger.visible > * {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .reveal-stagger.visible > * {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Slide from left */
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Slide from right */
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Scale up */
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Hero entrance - plays on load */
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heroFadeRight {
+    from { opacity: 0; transform: translateX(80px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes lineGrow {
+    from { width: 0; }
+    to { width: 60px; }
+  }
+  @keyframes photoBorderDraw {
+    from { opacity: 0; transform: translate(10px, 10px) scale(0.95); }
+    to { opacity: 1; transform: translate(0, 0) scale(1); }
+  }
+
+  .hero-content .hero-eyebrow {
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+  .hero-content h1 {
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+  }
+  .hero-content .hero-line {
+    animation: lineGrow 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+  }
+  .hero-content .hero-sub {
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+  }
+  .hero-content .hero-logo {
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+  }
+  .hero-content .hero-cta {
+    animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
+  }
+  .hero-photo img {
+    animation: heroFadeRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+  .hero-photo::after {
+    animation: photoBorderDraw 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+  }
+
+  /* Pillar hover lift */
+  .pillar {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pillar:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(231,98,36,0.3);
+  }
+
+  /* Button hover pulse */
+  .btn {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+  }
+  .btn:hover::after {
+    width: 400px; height: 400px;
+  }
+
+  /* Nav scroll shrink */
+  nav {
+    transition: padding 0.3s, box-shadow 0.3s;
+  }
+  nav.scrolled {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    box-shadow: 0 4px 30px rgba(1,47,71,0.1);
+  }
+
+  /* Floating orange accent dots (decorative) */
+  .orange-banner {
+    position: relative;
+    overflow: hidden;
+  }
+  .orange-banner::before,
+  .orange-banner::after {
+    content: '🍊';
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.1;
+    animation: floatSlow 8s ease-in-out infinite;
+  }
+  .orange-banner::before { top: 10%; left: 5%; animation-delay: 0s; }
+  .orange-banner::after { bottom: 10%; right: 5%; animation-delay: 4s; }
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+  }
+
+  /* Video border glow */
+  .video-wrap {
+    transition: box-shadow 0.5s;
+  }
+  .video-wrap:hover {
+    box-shadow: 0 0 40px rgba(231,98,36,0.4);
+  }
+
+  /* Stat number counter animation */
+  .stat .num {
+    transition: color 0.3s;
+  }
+  .stat:hover .num {
+    color: var(--orange-dark);
+  }
+
+  /* CTA section subtle bg movement */
+  .cta-section {
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    animation: ctaShimmer 12s ease-in-out infinite;
+  }
+  @keyframes ctaShimmer {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(5%, -3%); }
+  }
+  .cta-section > * { position: relative; z-index: 1; }
+
+  /* ============ END ANIMATIONS ============ */
+
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
@@ -310,11 +525,6 @@
     max-width: 280px;
     width: 100%;
   }
-  .bio-logo-area .orange-badge {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-  }
 
   /* CTA */
   .cta-section {
@@ -335,7 +545,6 @@
   .cta-section .btn-primary:hover { background: #013d5c; }
   .cta-section .btn-outline { color: #fff; border-color: rgba(255,255,255,0.4); }
   .cta-section .btn-outline:hover { background: #fff; color: var(--orange); border-color: #fff; }
-  .cta-logo { margin-top: 3rem; }
   .cta-logo img { height: 45px; filter: brightness(0) invert(1); }
 
   /* FOOTER */
@@ -356,6 +565,18 @@
   }
   footer a:hover { text-decoration: underline; }
   footer .social-links { display: flex; gap: 1.5rem; }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal, .reveal-left, .reveal-right, .reveal-scale {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -407,11 +628,11 @@
 
 <!-- ORANGE QUOTE BANNER -->
 <div class="orange-banner">
-  <blockquote>
+  <blockquote class="reveal-scale">
     "Florida is our home; America is our birthright; and we will never let them steal it from us."
   </blockquote>
-  <div class="attr">— James Fishback</div>
-  <div class="banner-logo">
+  <div class="attr reveal" style="transition-delay: 0.2s;">— James Fishback</div>
+  <div class="banner-logo reveal" style="transition-delay: 0.4s;">
     <img src="logo-transparent.png" alt="Fishback for Florida" style="height:50px;">
   </div>
 </div>
@@ -419,12 +640,12 @@
 <!-- VIDEO -->
 <div class="video-section" id="video">
   <div class="video-inner">
-    <div class="video-text">
+    <div class="video-text reveal-left">
       <div class="section-label">Campaign Announcement</div>
       <h2>Meet James<br>Fishback.</h2>
       <p>Hear directly from James on why he's running for Governor and his vision for a more affordable, stronger Florida.</p>
     </div>
-    <div class="video-wrap">
+    <div class="video-wrap reveal-right">
       <iframe src="https://www.youtube.com/embed/9_-oDkSWKMc" title="Fishback for Florida Governor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
@@ -432,9 +653,9 @@
 
 <!-- PILLARS -->
 <section>
-  <div class="section-label">James Fishback's Platform</div>
-  <div class="section-title">What James is<br>fighting for.</div>
-  <div class="pillar-grid">
+  <div class="section-label reveal">James Fishback's Platform</div>
+  <div class="section-title reveal">What James is<br>fighting for.</div>
+  <div class="pillar-grid reveal-stagger">
     <div class="pillar">
       <div class="pillar-num">01</div>
       <h3>Affordable Living</h3>
@@ -455,10 +676,10 @@
 
 <!-- BIO -->
 <section class="bio-section">
-  <div class="section-label">The Candidate</div>
-  <div class="section-title">Four generations<br>of Florida.</div>
+  <div class="section-label reveal">The Candidate</div>
+  <div class="section-title reveal">Four generations<br>of Florida.</div>
   <div class="bio-grid">
-    <div class="bio-text">
+    <div class="bio-text reveal-left">
       <p>James Fishback isn't a transplant chasing votes. <strong>His family has called Florida home for four generations.</strong> He knows what this state was, what it is, and what it can become.</p>
       <p>James is running to make life more affordable for every Floridian — so every family can <strong>earn a great-paying job, buy a home, raise their kids, and retire with dignity.</strong></p>
       <div class="bio-stats">
@@ -472,7 +693,7 @@
         </div>
       </div>
     </div>
-    <div class="bio-logo-area">
+    <div class="bio-logo-area reveal-right">
       <img class="big-logo" src="logo-transparent.png" alt="Fishback for Florida">
     </div>
   </div>
@@ -480,15 +701,15 @@
 
 <!-- CTA -->
 <div class="cta-section">
-  <div class="section-label">Join James Fishback</div>
-  <div class="section-title">Stand with<br><em>James.</em></div>
-  <p class="cta-sub">Florida's future won't be decided by insiders. James Fishback is building a movement of real Floridians.</p>
-  <div class="btn-group">
+  <div class="section-label reveal">Join James Fishback</div>
+  <div class="section-title reveal">Stand with<br><em>James.</em></div>
+  <p class="cta-sub reveal" style="transition-delay: 0.15s;">Florida's future won't be decided by insiders. James Fishback is building a movement of real Floridians.</p>
+  <div class="btn-group reveal" style="transition-delay: 0.3s;">
     <a href="https://secure.winred.com/fishback-for-governor/donate-today" class="btn btn-primary">Donate Now</a>
     <a href="https://secure.winred.com/fishback-for-governor/petition" class="btn btn-outline">Volunteer</a>
     <a href="mailto:Florida@Fishback2026.com" class="btn btn-outline">Contact</a>
   </div>
-  <div class="cta-logo" style="margin-top:3rem;">
+  <div class="cta-logo reveal" style="margin-top:3rem; transition-delay: 0.45s;">
     <img src="logo-transparent.png" alt="Fishback for Florida" style="height:45px;">
   </div>
 </div>
@@ -503,6 +724,38 @@
   </div>
   <a href="mailto:Florida@Fishback2026.com">Florida@Fishback2026.com</a>
 </footer>
+
+<script>
+// Scroll-triggered reveal animations via IntersectionObserver
+const revealClasses = ['.reveal', '.reveal-left', '.reveal-right', '.reveal-scale', '.reveal-stagger'];
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // only animate once
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+revealClasses.forEach(cls => {
+  document.querySelectorAll(cls).forEach(el => observer.observe(el));
+});
+
+// Nav shrink on scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Smooth parallax on hero photo (subtle)
+const heroPhoto = document.querySelector('.hero-photo img');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    heroPhoto.style.transform = `translateY(${y * 0.08}px)`;
+  }
+}, { passive: true });
+</script>
 
 </body>
 </html>
