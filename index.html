@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fishback for Florida Governor — 2026</title>
+<title>James Fishback — Florida Governor 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="https://fishback2026.com/wp-content/uploads/2025/11/cropped-favicon-32x32.png" sizes="32x32">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -13,7 +14,9 @@
     --cream: #fef5dc;
     --navy: #012f47;
     --orange: #e76224;
-    --navy-light: rgba(1,47,71,0.7);
+    --orange-dark: #c9511c;
+    --orange-light: rgba(231,98,36,0.12);
+    --navy-light: rgba(1,47,71,0.6);
   }
 
   html { scroll-behavior: smooth; }
@@ -31,26 +34,25 @@
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 3rem;
-    background: rgba(254,245,220,0.9);
+    padding: 1rem 3rem;
+    background: rgba(254,245,220,0.92);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(1,47,71,0.08);
+    border-bottom: 2px solid var(--orange);
   }
-  nav .logo img { height: 28px; }
+  nav .logo img { height: 32px; }
   nav .nav-links { display: flex; gap: 2rem; align-items: center; }
   nav .nav-links a {
-    color: var(--navy); text-decoration: none; font-size: 0.8rem;
+    color: var(--navy); text-decoration: none; font-size: 0.78rem;
     font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
     transition: color 0.3s;
   }
   nav .nav-links a:hover { color: var(--orange); }
   nav .nav-links .btn-nav {
     padding: 0.7rem 2rem;
-    background: var(--orange); color: var(--cream);
-    border-radius: 0;
+    background: var(--orange); color: #fff;
     transition: background 0.3s;
   }
-  nav .nav-links .btn-nav:hover { background: #c9511c; color: #fff; }
+  nav .nav-links .btn-nav:hover { background: var(--orange-dark); }
 
   /* HERO */
   .hero {
@@ -58,42 +60,43 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 8rem 3rem 4rem;
+    padding: 7rem 3rem 4rem;
     max-width: 1400px; margin: 0 auto;
     gap: 4rem;
   }
-  .hero-content {}
   .hero-eyebrow {
     font-size: 0.7rem; font-weight: 700;
     letter-spacing: 0.35em; text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   .hero h1 {
-    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-size: clamp(2.8rem, 6vw, 5rem);
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--navy);
   }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--orange);
-  }
+  .hero h1 .orange { color: var(--orange); }
   .hero-line {
-    width: 60px; height: 3px;
+    width: 60px; height: 4px;
     background: var(--orange);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   .hero-sub {
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
     line-height: 1.7;
     max-width: 520px;
     color: var(--navy-light);
     font-weight: 400;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
+  .hero-sub strong { color: var(--navy); font-weight: 700; }
+  .hero-logo {
+    margin-bottom: 2rem;
+  }
+  .hero-logo img { height: 60px; }
   .hero-cta {
     display: flex; gap: 1rem; flex-wrap: wrap;
   }
@@ -110,7 +113,7 @@
   .hero-photo::after {
     content: '';
     position: absolute;
-    bottom: -12px; right: -12px;
+    bottom: -10px; right: -10px;
     width: 100%; height: 100%;
     border: 3px solid var(--orange);
     z-index: -1;
@@ -128,14 +131,44 @@
     cursor: pointer;
   }
   .btn-primary {
-    background: var(--orange); color: var(--cream);
+    background: var(--orange); color: #fff;
   }
-  .btn-primary:hover { background: #c9511c; }
+  .btn-primary:hover { background: var(--orange-dark); }
   .btn-outline {
     background: transparent; color: var(--navy);
     border: 2px solid var(--navy);
   }
   .btn-outline:hover { background: var(--navy); color: var(--cream); }
+
+  /* ORANGE BANNER */
+  .orange-banner {
+    background: var(--orange);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 3rem;
+  }
+  .orange-banner blockquote {
+    font-size: clamp(1.3rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.3;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .orange-banner .attr {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    font-weight: 700;
+  }
+  .orange-banner .banner-logo {
+    margin-top: 2rem;
+  }
+  .orange-banner .banner-logo img {
+    height: 50px;
+    filter: brightness(0) invert(1);
+  }
 
   /* VIDEO SECTION */
   .video-section {
@@ -161,12 +194,20 @@
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .video-text p {
+    color: rgba(254,245,220,0.6);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 300;
   }
   .video-wrap {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
+    border: 3px solid var(--orange);
   }
   .video-wrap iframe {
     position: absolute;
@@ -204,21 +245,15 @@
   }
   .pillar {
     padding: 2.5rem;
-    background: var(--navy);
-    color: var(--cream);
+    background: var(--orange);
+    color: #fff;
     position: relative;
   }
-  .pillar::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 4px;
-    background: var(--orange);
-  }
   .pillar-num {
-    font-size: 0.65rem; font-weight: 700;
-    letter-spacing: 0.3em; color: var(--orange);
-    margin-bottom: 1.2rem;
+    font-size: 3rem; font-weight: 800;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 0.5rem;
+    line-height: 1;
   }
   .pillar h3 {
     font-size: 1.4rem; font-weight: 800;
@@ -226,51 +261,82 @@
     line-height: 1.15;
   }
   .pillar p {
-    color: rgba(254,245,220,0.7); font-size: 0.9rem; line-height: 1.7;
-    font-weight: 300;
+    color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.7;
+    font-weight: 400;
   }
 
-  /* QUOTE */
-  .quote-section {
-    text-align: center;
-    padding: 8rem 3rem;
-    border-top: 1px solid rgba(1,47,71,0.1);
-    border-bottom: 1px solid rgba(1,47,71,0.1);
+  /* BIO */
+  .bio-section {
+    border-top: 3px solid var(--orange);
   }
-  .quote-section blockquote {
-    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
-    font-weight: 700;
-    line-height: 1.3;
-    max-width: 850px;
-    margin: 0 auto 2rem;
-    letter-spacing: -0.01em;
-    color: var(--navy);
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
   }
-  .quote-section .attr {
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--orange);
-    font-weight: 700;
+  .bio-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--navy-light);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  .bio-text p strong { color: var(--navy); }
+  .bio-stats {
+    display: flex; gap: 3rem; margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--orange);
+  }
+  .stat .num {
+    font-size: 3rem; font-weight: 800; color: var(--orange);
+    line-height: 1;
+  }
+  .stat .label {
+    font-size: 0.7rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--navy-light);
+    margin-top: 0.4rem; font-weight: 700;
+  }
+  .bio-logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem;
+    background: var(--orange-light);
+  }
+  .bio-logo-area img.big-logo {
+    max-width: 280px;
+    width: 100%;
+  }
+  .bio-logo-area .orange-badge {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
   }
 
   /* CTA */
   .cta-section {
-    background: var(--navy);
-    color: var(--cream);
+    background: var(--orange);
+    color: #fff;
     text-align: center;
     padding: 8rem 3rem;
   }
-  .cta-section .section-label { color: var(--orange); }
-  .cta-section .section-title { color: var(--cream); margin-bottom: 1.5rem; }
-  .cta-section .section-title em { font-style: italic; color: var(--orange); }
+  .cta-section .section-label { color: rgba(255,255,255,0.6); }
+  .cta-section .section-title { color: #fff; margin-bottom: 1.5rem; }
+  .cta-section .section-title em { font-style: italic; color: var(--navy); }
   .cta-sub {
-    color: rgba(254,245,220,0.7); font-size: 1rem;
-    max-width: 480px; margin: 0 auto 3rem; line-height: 1.7; font-weight: 300;
+    color: rgba(255,255,255,0.8); font-size: 1rem;
+    max-width: 480px; margin: 0 auto 3rem; line-height: 1.7; font-weight: 400;
   }
   .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .cta-section .btn-outline { color: var(--cream); border-color: rgba(254,245,220,0.3); }
-  .cta-section .btn-outline:hover { background: var(--cream); color: var(--navy); border-color: var(--cream); }
+  .cta-section .btn-primary { background: var(--navy); color: var(--cream); }
+  .cta-section .btn-primary:hover { background: #013d5c; }
+  .cta-section .btn-outline { color: #fff; border-color: rgba(255,255,255,0.4); }
+  .cta-section .btn-outline:hover { background: #fff; color: var(--orange); border-color: #fff; }
+  .cta-logo { margin-top: 3rem; }
+  .cta-logo img { height: 45px; filter: brightness(0) invert(1); }
 
   /* FOOTER */
   footer {
@@ -278,7 +344,7 @@
     display: flex; justify-content: space-between; align-items: center;
     max-width: 1400px; margin: 0 auto;
     flex-wrap: wrap; gap: 1rem;
-    border-top: 1px solid rgba(1,47,71,0.1);
+    border-top: 2px solid var(--orange);
   }
   footer span {
     font-size: 0.7rem; color: var(--navy-light);
@@ -298,8 +364,9 @@
     .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2rem; }
     .hero-photo { order: -1; max-width: 350px; }
     .video-inner { grid-template-columns: 1fr; }
+    .bio-grid { grid-template-columns: 1fr; }
     section { padding: 5rem 1.5rem; }
-    .quote-section, .cta-section { padding: 5rem 1.5rem; }
+    .orange-banner, .cta-section { padding: 5rem 1.5rem; }
   }
 </style>
 </head>
@@ -320,14 +387,17 @@
 <div class="hero">
   <div class="hero-content">
     <div class="hero-eyebrow">Republican for Governor of Florida</div>
-    <h1>Florida is<br>our <em>home.</em></h1>
+    <h1>James<br>Fishback<br><span class="orange">for Florida.</span></h1>
     <div class="hero-line"></div>
     <p class="hero-sub">
-      I'm a fourth-generation Floridian, and I'm running to make life more affordable for you and your family. I'm fighting so every Floridian can earn a great-paying job, buy a home, raise a family, and retire with dignity.
+      <strong>A fourth-generation Floridian</strong> running to succeed Ron DeSantis as Florida's next Republican Governor. James is fighting to make life more affordable for every family in the Sunshine State.
     </p>
+    <div class="hero-logo">
+      <img src="https://fishback2026.com/wp-content/uploads/2025/11/FISHBACK-1.png" alt="Fishback for Florida logo">
+    </div>
     <div class="hero-cta">
-      <a href="https://secure.winred.com/fishback-for-governor/donate-today" class="btn btn-primary">Donate to Our Movement</a>
-      <a href="#video" class="btn btn-outline">Watch the Video</a>
+      <a href="https://secure.winred.com/fishback-for-governor/donate-today" class="btn btn-primary">Donate to James</a>
+      <a href="#video" class="btn btn-outline">Watch His Story</a>
     </div>
   </div>
   <div class="hero-photo">
@@ -335,12 +405,15 @@
   </div>
 </div>
 
-<!-- QUOTE -->
-<div class="quote-section">
+<!-- ORANGE QUOTE BANNER -->
+<div class="orange-banner">
   <blockquote>
     "Florida is our home; America is our birthright; and we will never let them steal it from us."
   </blockquote>
   <div class="attr">— James Fishback</div>
+  <div class="banner-logo">
+    <img src="https://fishback2026.com/wp-content/uploads/2025/11/FISHBACK-1.png" alt="Fishback for Florida">
+  </div>
 </div>
 
 <!-- VIDEO -->
@@ -348,7 +421,8 @@
   <div class="video-inner">
     <div class="video-text">
       <div class="section-label">Campaign Announcement</div>
-      <h2>See why<br>we're running.</h2>
+      <h2>Meet James<br>Fishback.</h2>
+      <p>Hear directly from James on why he's running for Governor and his vision for a more affordable, stronger Florida.</p>
     </div>
     <div class="video-wrap">
       <iframe src="https://www.youtube.com/embed/9_-oDkSWKMc" title="Fishback for Florida Governor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -358,36 +432,64 @@
 
 <!-- PILLARS -->
 <section>
-  <div class="section-label">The Platform</div>
-  <div class="section-title">What we're<br>fighting for.</div>
+  <div class="section-label">James Fishback's Platform</div>
+  <div class="section-title">What James is<br>fighting for.</div>
   <div class="pillar-grid">
     <div class="pillar">
       <div class="pillar-num">01</div>
       <h3>Affordable Living</h3>
-      <p>Housing costs have spiraled out of reach. We will cut the red tape that blocks new homes and drive down the cost of living for working families.</p>
+      <p>James will cut the red tape that blocks new homes and drive down the cost of living so every Floridian can afford to stay in the state they love.</p>
     </div>
     <div class="pillar">
       <div class="pillar-num">02</div>
       <h3>Great-Paying Jobs</h3>
-      <p>Florida's economy should work for Floridians first. We'll bring high-wage industries home and invest in the workforce that builds our state.</p>
+      <p>Florida's economy should work for Floridians first. James will bring high-wage industries home and invest in the workforce that builds this state.</p>
     </div>
     <div class="pillar">
       <div class="pillar-num">03</div>
       <h3>Family & Retirement</h3>
-      <p>Raise a family without drowning in costs. Retire with dignity, not anxiety. Florida should be where the American Dream still lives.</p>
+      <p>Raise a family without drowning in costs. Retire with dignity, not anxiety. James believes Florida should be where the American Dream still lives.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="bio-section">
+  <div class="section-label">The Candidate</div>
+  <div class="section-title">Four generations<br>of Florida.</div>
+  <div class="bio-grid">
+    <div class="bio-text">
+      <p>James Fishback isn't a transplant chasing votes. <strong>His family has called Florida home for four generations.</strong> He knows what this state was, what it is, and what it can become.</p>
+      <p>James is running to make life more affordable for every Floridian — so every family can <strong>earn a great-paying job, buy a home, raise their kids, and retire with dignity.</strong></p>
+      <div class="bio-stats">
+        <div class="stat">
+          <div class="num">4th</div>
+          <div class="label">Generation Floridian</div>
+        </div>
+        <div class="stat">
+          <div class="num">2026</div>
+          <div class="label">Governor's Race</div>
+        </div>
+      </div>
+    </div>
+    <div class="bio-logo-area">
+      <img class="big-logo" src="https://fishback2026.com/wp-content/uploads/2025/11/FISHBACK-1.png" alt="Fishback for Florida">
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta-section">
-  <div class="section-label">Join the Movement</div>
-  <div class="section-title">This is<br>our <em>fight.</em></div>
-  <p class="cta-sub">Florida's future won't be decided by insiders. It'll be decided by us.</p>
+  <div class="section-label">Join James Fishback</div>
+  <div class="section-title">Stand with<br><em>James.</em></div>
+  <p class="cta-sub">Florida's future won't be decided by insiders. James Fishback is building a movement of real Floridians.</p>
   <div class="btn-group">
     <a href="https://secure.winred.com/fishback-for-governor/donate-today" class="btn btn-primary">Donate Now</a>
     <a href="https://secure.winred.com/fishback-for-governor/petition" class="btn btn-outline">Volunteer</a>
     <a href="mailto:Florida@Fishback2026.com" class="btn btn-outline">Contact</a>
+  </div>
+  <div class="cta-logo">
+    <img src="https://fishback2026.com/wp-content/uploads/2025/11/FISHBACK-1.png" alt="Fishback for Florida">
   </div>
 </div>
 
